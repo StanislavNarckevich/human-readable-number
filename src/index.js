@@ -40,6 +40,8 @@ module.exports = function toReadable(number) {
 
             if (ten == '0') {
                 ten = '0'
+                let result = `${numberWords[hundred]} hundred ${numberWords[unit]}`
+                return result.trim()
             }
             else {
                 if (ten == '1') {
@@ -47,11 +49,9 @@ module.exports = function toReadable(number) {
                     unit = '0'
                 }
                 else ten += '0'
+                let result = `${numberWords[hundred]} hundred ${numberWords[ten]} ${numberWords[unit]}`
+                return result.trim()
             }
-            let result = `${numberWords[hundred]} hundred ${numberWords[ten]}`
-            result.trim()
-            result += ` ${numberWords[unit]}`
-            return result.trim()
         }
 
         if (num.length == 2) {
@@ -73,6 +73,4 @@ module.exports = function toReadable(number) {
             return result
         }
     }
-
-    return result
 }
